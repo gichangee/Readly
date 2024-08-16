@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ehddls
+      MYSQL_DATABASE: readly
+      MYSQL_USER: ehddls
+      MYSQL_PASSWORD: ehddls
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - backendnet
+
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6380:6379
+    networks:
+      - backendnet
+
+  backend:
+    image: readly_backend
+    container_name: backend
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - backendnet
+
+
+  frontend:
+    image: readly_frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    networks:
+      - backendnet
+    volumes:
+      - /home/ubuntu/nginx/frontconf:/etc/nginx/conf.d
+  
+  ai:
+    image: readly_ai
+    container_name: ai
+    ports:
+      - "8082:8082"
+    networks:
+      - backendnet
+      
+volumes:
+  mysql-data:
+
+networks:
+  backendnet:
+    external: true
+

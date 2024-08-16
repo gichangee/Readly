@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BM_HANNA';
+  src: url('./assets/font/BMHANNA_ttf.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    font-family: BM_HANNA
+  }
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* IE */
+* {
+  -ms-overflow-style: none;
+}

@@ -1,0 +1,70 @@
+.follow-btn-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.follow-btn-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.follow-btn-container .like {
+  fill: none;
+  stroke: gray; /* Change stroke color to gray */
+  width: 40px; /* Adjust width */
+  height: 40px; /* Adjust height */
+}
+
+.follow-btn-container input:checked ~ .like {
+  animation: kfs-fill-like .5s forwards;
+}
+
+.follow-btn-container input:checked ~ .celebrate {
+  display: block;
+}
+
+.follow-btn-container .celebrate {
+  position: absolute;
+  animation: kfs-celebrate 1s forwards;
+  display: none;
+  stroke: gray; /* Change stroke color to gray */
+  width: 40px; /* Adjust width */
+  height: 40px; /* Adjust height */
+}
+
+@keyframes kfs-celebrate {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes kfs-fill-like {
+  50% {
+    fill: gray; /* Change fill color to gray */
+    stroke: gray; /* Change stroke color to gray */
+    transform: scale(1.2);
+  }
+
+  100% {
+    fill: gray; /* Change fill color to gray */
+    stroke: gray; /* Change stroke color to gray */
+  }
+}

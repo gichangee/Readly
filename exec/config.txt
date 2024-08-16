@@ -1,0 +1,4 @@
+OPEN-API-KEY = 
+cloud.aws.credentials.access-key = 
+cloud.aws.credentials.secret-key = 
+cloud.aws.region.static = 

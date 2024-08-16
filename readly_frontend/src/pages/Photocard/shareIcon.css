@@ -1,0 +1,15 @@
+.share-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.share-icon:hover {
+  transform: scale(1.1);
+}
+
+.share-icon img {
+  width: 60px;
+  height: 60px;
+}

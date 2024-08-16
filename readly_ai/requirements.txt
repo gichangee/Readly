@@ -1,0 +1,7 @@
+faiss_cpu==1.8.0.post1
+fastapi==0.112.0
+numpy==1.22.4
+pandas==2.2.2
+pydantic==2.8.2
+sentence_transformers==3.0.1
+uvicorn[standard]==0.13.4

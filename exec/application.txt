@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: secrets
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 500
+  data:
+    redis:
+      host: redis
+      port: 6379
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+  
+jwt:
+  salt: ${JWT_SALT}
+  access-token.expirationtime: 600000
+  refresh-token.expirationtime: 604800000
+
+OPENVIDU_URL: https://i11c207.p.ssafy.io:8443/
+OPENVIDU_SECRET: ${OPENVIDU_SECRET}
+
+cloud:
+  aws:
+    s3:
+      bucket: ${AWS_S3_BUCKET}
+    region:
+      auto: false
+    stack:
+      auto: false
